@@ -4,6 +4,8 @@ I wanted to know when I could leave my windows open throughout the day without c
 
 Choose your location and indoor humidity target. Luften-Window uses the hourly weather forecast to show **when to open your windows, how long to leave them open, and when to close them**.
 
+**[Open Luften-Window](https://lofihippo.github.io/Luften-Window/)**
+
 - See today's opening times at a glance, with up to three days on the forecast chart.
 - Adjust for your indoor temperature, humidity target, rain, wind and outdoor comfort.
 - Add a window to your calendar, or set up optional background notifications.

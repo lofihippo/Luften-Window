@@ -11,7 +11,7 @@ npm run dev
 
 ## Verification coverage
 
-The 225-test suite covers settings validation and sharing, psychrometric calculations, forecast normalization and gaps, current-window boundaries, timezone transitions, browser freshness and request races, calendar serialization, notification retries, publication rollback, workflow state and revision checks, and static-server path handling. Notification tests use injected transports rather than real destinations.
+The 226-test suite covers settings validation and sharing, psychrometric calculations, forecast normalization and gaps, current-window boundaries, timezone transitions, browser freshness and request races, calendar serialization, notification retries, publication rollback, workflow state and revision checks, and static-server path handling. Notification tests use injected transports rather than real destinations.
 
 The suite has passed on Node 22, 24 and 26. CI tests Node 22/24, while Pages uses Node 24. Integration tests connect the production checker, mocked provider transport, real temporary files and the browser forecast controller. Temporary bare Git repositories exercise stale revisions and rejected concurrent data pushes.
 
@@ -29,7 +29,8 @@ Recorded browser checks cover narrow/wide light/dark layouts, keyboard settings 
 
 - [x] Local unit and integration suite, including supported Node versions.
 - [x] Responsive, keyboard, state and automated accessibility checks.
-- [ ] Confirm the public release's hosted CI, Pages deployment and a subsequent checker run restoring state.
+- [x] Public release tests and GitHub Pages deployment.
+- [x] Subsequent hosted checker run restoring saved delivery state.
 - [ ] Save and import an individual event, and subscribe to the live feed in a native calendar client.
 - [ ] Verify physical touch, a real screen reader and speech-control interaction.
 - [ ] If notifications are enabled, verify delivery to explicitly designated test destinations.
@@ -41,3 +42,11 @@ The remaining manual checks are not implied by passing automated tests. Update t
 Keep deployment defaults at a public city-level example. Avoid committing personal coordinates, destination details, credentials or local delivery state. Personal browser settings do not change the shared feed or configure background notifications.
 
 After changes to recommendation logic, run the shared-core and integration suite. After interaction changes, exercise the browser fixture and applicable accessibility checks. Follow [Setup and usage](setup.md) to deploy or recover from a stale workflow run.
+
+## Public release — 2026-09-25
+
+All 226 tests passed on Node 22.23.3, 24.21.0 and 26.8.2. The [initial Pages deployment](https://github.com/lofihippo/Luften-Window/actions/runs/36139779914) and [first hosted checker run](https://github.com/lofihippo/Luften-Window/actions/runs/36139917849) passed. The public app loaded live weather, upcoming windows, the chart and the shared calendar at its hosted subpath.
+
+A subsequent live run exposed a workflow metadata mismatch that skipped prior-state restoration. The selector now accepts GitHub's bare workflow path as well as a ref-qualified path, with regression coverage rejecting unrelated workflows.
+
+The [verified follow-up run](https://github.com/lofihippo/Luften-Window/actions/runs/36140423516) downloaded and validated the previous ledger, ran the checker, saved the updated ledger and deployed successfully. The live forecast/calendar/check-marker bundle validated, and the delivery-state URL returned 404. Notifications remained disabled throughout these checks.
