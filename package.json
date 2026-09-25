@@ -2,6 +2,7 @@
   "name": "openwindow",
   "version": "1.0.0",
   "description": "Humidity-aware window opening planner",
+  "license": "MIT",
   "type": "module",
   "private": true,
   "scripts": {
