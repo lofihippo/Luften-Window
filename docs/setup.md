@@ -108,6 +108,12 @@ For Pages, enter these values as repository Actions secrets; for a local Node ch
 
 ### Calendar subscription
 
+**A subscription stays connected to the feed; an imported event is a one-time copy.** Choose **Add to calendar** on a window to save that event with your current browser settings. To keep receiving changing opening times, add the shared calendar's URL once in your calendar app.
+
+The [public demo feed](https://lofihippo.github.io/Luften-Window/data/windows.ics) follows **New York (example)**. Personal browser settings do not create a personalized subscription. For your own region, deploy a copy, set the location and thresholds in `public/config.json`, and subscribe to that deployment's feed. Keep its committed location at city-level precision if you want to avoid publishing a home address.
+
+The included Pages workflow is scheduled to check the forecast and refresh the feed **hourly**, including overnight and in the morning. Events reflect the humidity target and other weather limits. Actions schedules can be delayed, and Google, Apple and Outlook choose their own refresh intervals, so the app cannot guarantee that updated events will appear by a particular morning time. Optional daily digest notifications are a separate feature; they do not control calendar refresh.
+
 Once the checker has run, `public/data/windows.ics` is generated. The app offers its subscription link only while the shared checker forecast and a structurally valid feed are available. `public/data/check-status.json` records the last successful check separately, so an unchanged forecast remains fresh without rewriting JSON or ICS. This feed follows the checker's location and settings; changing personal settings in the browser does not change it. Per-window calendar downloads reflect your current browser settings.
 
 Use **Copy link** in the shared calendar panel, or the deployed feed URL: `https://<user>.github.io/<repo>/data/windows.ics` for project Pages, or `https://<host>/data/windows.ics` for a root deployment. Keep the repository subpath. For ongoing updates, add a URL subscription; importing an individual `.ics` download makes a one-time copy.

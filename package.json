@@ -1,7 +1,7 @@
 {
-  "name": "openwindow",
+  "name": "luften-window",
   "version": "1.0.0",
-  "description": "Humidity-aware window opening planner",
+  "description": "Know the window during the day, to keep the windows open!",
   "license": "MIT",
   "type": "module",
   "private": true,

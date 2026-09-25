@@ -61,7 +61,7 @@ audit_page desktop-dark-expanded 'http://127.0.0.1:8082/Luften-Window/?audit=exp
 
 These are the flags verified with this Chrome version. The default preference on the audit Mac was dark, so an unqualified headless launch did not verify light mode. Inspect screenshots after reruns; do not infer theme from a report filename. Chromium defines its light `preferredColorScheme` value as 1 ([enum](https://raw.githubusercontent.com/chromium/chromium/main/third_party/blink/public/mojom/css/preferred_color_scheme.mojom)). For Lighthouse CLI usage, see the [official guide](https://github.com/GoogleChrome/lighthouse/blob/main/readme.md).
 
-Inspect every audit with a numeric score below 1, not just the category score. Stop the fixture with Ctrl-C when finished. The original full JSON/HTML reports and screenshots were saved as temporary local artifacts. The metadata below preserves the audited source and report identities. The default location and notification opt-in were subsequently changed for the public example; the interface was unchanged.
+Inspect every audit with a numeric score below 1, not just the category score. Stop the fixture with Ctrl-C when finished. The original full JSON/HTML reports and screenshots were saved as temporary local artifacts. The metadata below preserves the audited source and report identities. The default location and notification opt-in were subsequently changed for the public example; the interface was unchanged at that point. The visible app name and description were later updated to Luften Window; the source hashes below identify the earlier audited version.
 
 ## Limits
 

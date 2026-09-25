@@ -1,4 +1,4 @@
-// OpenWindow UI entry point. ES module, no dependencies.
+// Luften Window UI entry point. ES module, no dependencies.
 
 import { mergeSettings, validate, toQuery, fromQuery } from "./core/settings.js";
 import { fetchForecast } from "./core/forecast.js";
@@ -254,7 +254,7 @@ function downloadIcs(w) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  a.download = "openwindow.ics";
+  a.download = "luften-window.ics";
   document.body.appendChild(a);
   a.click();
   a.remove();

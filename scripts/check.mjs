@@ -228,7 +228,7 @@ async function maybeDigest({ settings, now, win, stateObj, notifyImpl, timezone,
       .join("; ");
   }
   await deliver({ stateObj, event: `digest:${todayLocal}`, identities, notifyImpl, persistState,
-    message: { title: "OpenWindow daily digest", body: message, tags: "window" } });
+    message: { title: "Luften Window daily digest", body: message, tags: "window" } });
 }
 
 /**

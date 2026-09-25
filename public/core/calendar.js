@@ -92,9 +92,9 @@ export function buildCalendar({ settings, windows, timezone, stampEpoch }) {
   const lines = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//OpenWindow//Window Planner//EN",
+    "PRODID:-//Luften Window//Window Planner//EN",
     "CALSCALE:GREGORIAN",
-    "X-WR-CALNAME:Open Windows",
+    "X-WR-CALNAME:Luften Window",
     "X-PUBLISHED-TTL:PT1H",
   ];
 

@@ -105,10 +105,10 @@ if (isMain) {
   const { host, port } = serverAddress();
   const server = createServer(createStaticHandler());
   server.on("error", (error) => {
-    console.error(`OpenWindow dev server: ${error.message}`);
+    console.error(`Luften Window dev server: ${error.message}`);
     process.exitCode = 1;
   });
   server.listen(port, host, () => {
-    console.log(`OpenWindow dev server running at http://${host}:${port}`);
+    console.log(`Luften Window dev server running at http://${host}:${port}`);
   });
 }

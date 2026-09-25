@@ -535,7 +535,7 @@ test("digest sends once per local date even across a UTC date boundary", async (
   assert.equal(localDate(now), localDate(now + 2 * HOUR));
   await h.run({ now });
   assert.equal(h.notifications.length, 1);
-  assert.equal(h.notifications[0].title, "OpenWindow daily digest");
+  assert.equal(h.notifications[0].title, "Luften Window daily digest");
   assert.match(h.notifications[0].body, /dew point/);
   assert.deepEqual(Object.keys(JSON.parse(h.store.get(STATE)).delivered[`digest:${localDate(now)}`]), ["ntfy"]);
   await h.run({ now: now + 2 * HOUR });
@@ -551,7 +551,7 @@ test("digest waits for its configured local hour", async () => {
   assert.equal(h.notifications.length, 0);
   await h.run({ now: fixture.hourly.time[0] + 7 * HOUR });
   assert.equal(h.notifications.length, 1);
-  assert.equal(h.notifications[0].title, "OpenWindow daily digest");
+  assert.equal(h.notifications[0].title, "Luften Window daily digest");
 });
 
 test("digest with no suitable windows sends the no-window message", async () => {
@@ -559,7 +559,7 @@ test("digest with no suitable windows sends the no-window message", async () => 
   const { data } = await h.run({ now: START - HOUR / 2 });
   assert.deepEqual(data.windows, []);
   assert.equal(h.notifications.length, 1);
-  assert.equal(h.notifications[0].title, "OpenWindow daily digest");
+  assert.equal(h.notifications[0].title, "Luften Window daily digest");
   assert.match(h.notifications[0].body, /^No suitable window before .*9:00 AM UTC\. No further window forecast\.$/);
   await h.run({ now: START - HOUR / 2 });
   assert.equal(h.notifications.length, 1);
@@ -608,7 +608,7 @@ test("a digest delayed past its configured local hour still sends once", async (
   const now = fixture.hourly.time[0] + 10 * HOUR;
   await h.run({ now });
   await h.run({ now: now + HOUR });
-  assert.deepEqual(h.notifications.map(({ title }) => title), ["OpenWindow daily digest"]);
+  assert.deepEqual(h.notifications.map(({ title }) => title), ["Luften Window daily digest"]);
 });
 
 test("a delayed digest includes a suitable window already in progress", async () => {
@@ -769,7 +769,7 @@ test("calendar has CRLF lines, UTF-8 byte limits, alarms, and stable UIDs", asyn
   assert.match(ics, /^BEGIN:VCALENDAR\r\n/);
   assert.ok(ics.endsWith("END:VCALENDAR\r\n"));
   assert.ok(!/[\r\n]/.test(ics.replaceAll("\r\n", "")), "no bare CR or LF line endings");
-  assert.match(ics, /X-WR-CALNAME:Open Windows\r\n/);
+  assert.match(ics, /X-WR-CALNAME:Luften Window\r\n/);
   assert.match(ics, /X-PUBLISHED-TTL:PT1H\r\n/);
   for (const line of ics.split("\r\n")) {
     assert.ok(Buffer.byteLength(line, "utf8") <= 75, `calendar line exceeds 75 bytes: ${line}`);
