@@ -150,6 +150,23 @@ test("a rerun can restore its own earlier completed attempt without overwriting 
   assert.equal(found.runId, 40);
 });
 
+test("state restore accepts GitHub's bare workflow path and qualified paths, but rejects other workflows", async () => {
+  for (const [path, eligible] of [
+    [".github/workflows/pages.yml", true],
+    [".github/workflows/pages.yml@main", true],
+    [".github/workflows/ci.yml", false],
+    [".github/workflows/pages.yml.backup@main", false],
+    [undefined, false],
+  ]) {
+    const found = await findLatestStateArtifact({
+      api: apiFrom({ artifacts: [artifact(8, 40, 22)],
+        runs: new Map([[40, run(40, "workflow_dispatch", { path })]]) }),
+      repository: "owner/repo", branch: "main", currentRunId: 41,
+    });
+    assert.equal(found?.id ?? null, eligible ? 8 : null, `workflow path: ${path}`);
+  }
+});
+
 test("state restore compares all artifact pages instead of trusting API listing order", async () => {
   const older = artifact(7, 37, 18);
   const newer = artifact(8, 38, 19);

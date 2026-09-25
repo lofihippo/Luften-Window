@@ -116,7 +116,8 @@ export async function findLatestStateArtifact({ api, repository, branch, current
     if ((run?.status === "completed" || earlierAttemptOfCurrent)
         && run?.id === artifact.workflow_run.id
         && run.head_branch === branch && ["schedule", "workflow_dispatch"].includes(run.event)
-        && typeof run.path === "string" && run.path.startsWith(".github/workflows/pages.yml@")) {
+        && typeof run.path === "string"
+        && (run.path === ".github/workflows/pages.yml" || run.path.startsWith(".github/workflows/pages.yml@"))) {
       // A run may fail after successfully uploading its delivery state. Its
       // artifact is still the newest confirmed ledger and must be restored.
       return { id: artifact.id, name: artifact.name, runId: run.id, createdAt: artifact.created_at };
