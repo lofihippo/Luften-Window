@@ -1,0 +1,153 @@
+name: pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  actions: read
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm test
+
+  build-deploy:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      # Reruns keep the original checkout. Stop before sending or publishing
+      # when a queued/rerun revision is no longer the current main branch.
+      - name: Verify current main before checker work
+        run: node scripts/actions-state.mjs verify-revision
+
+      # The Pages concurrency group serializes scheduled/manual runs. Restore
+      # the newest uploaded confirmation ledger before any notification send.
+      - name: Select previous private delivery state
+        id: previous-state
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        run: node scripts/actions-state.mjs select
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Download previous private delivery state
+        if: steps.previous-state.outputs.found == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ steps.previous-state.outputs.artifact_name }}
+          run-id: ${{ steps.previous-state.outputs.run_id }}
+          github-token: ${{ github.token }}
+          path: .state
+
+      - name: Validate restored private delivery state
+        if: steps.previous-state.outputs.found == 'true'
+        run: node scripts/actions-state.mjs validate-private
+
+      - name: Run checker (scheduled/manual only)
+        id: checker
+        if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+        continue-on-error: true
+        run: npm run check
+        env:
+          NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+      # The checker persists each confirmed event. Upload that ledger even if
+      # a later checker step failed, before any Git commit or Pages deployment.
+      - name: Validate private state for upload
+        id: state
+        if: ${{ !cancelled() && steps.checker.outcome != 'skipped' }}
+        run: node scripts/actions-state.mjs prepare-upload
+
+      - name: Require private state after a successful check
+        if: ${{ steps.checker.outcome == 'success' && steps.state.outputs.has_state != 'true' }}
+        run: exit 1
+
+      - name: Save private delivery state
+        id: state-upload
+        if: ${{ !cancelled() && steps.state.outputs.has_state == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: checker-delivery-state-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .state/state.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 30
+
+      # On failure, discard any new or temporary data files. If the tracked
+      # bundle is incomplete, verification below fails and Pages stays as-is.
+      - name: Restore tracked last-good data after checker failure
+        if: ${{ !cancelled() && steps.checker.outcome == 'failure' }}
+        run: |
+          git restore -- public/data
+          git clean -fdx -- public/data
+
+      - name: Verify complete Pages data bundle
+        id: bundle
+        run: node scripts/actions-state.mjs verify-public
+        env:
+          ALLOW_LEGACY_PUSH: ${{ github.event_name == 'push' }}
+
+      - name: Commit verified updated data
+        if: ${{ steps.checker.outcome == 'success' && steps.state-upload.outcome == 'success' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain public/data)" ]; then
+            git add public/data
+            git commit -m "chore: update forecast data [skip ci]"
+            git push
+          fi
+
+      # Main can also advance while this job is checking the forecast. A
+      # successful checker push updates HEAD, which must still match main.
+      - name: Verify current main before Pages publication
+        run: node scripts/actions-state.mjs verify-revision
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Report checker failure after last-good deployment
+        if: ${{ !cancelled() && steps.checker.outcome == 'failure' }}
+        run: exit 1

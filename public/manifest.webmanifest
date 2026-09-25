@@ -1,0 +1,17 @@
+{
+  "name": "OpenWindow",
+  "short_name": "OpenWindow",
+  "description": "Find the best times of day to open your windows to keep indoor humidity down.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f4ee",
+  "theme_color": "#f5f4ee",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

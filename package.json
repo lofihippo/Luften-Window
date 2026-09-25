@@ -1,0 +1,16 @@
+{
+  "name": "openwindow",
+  "version": "1.0.0",
+  "description": "Humidity-aware window opening planner",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "dev": "node scripts/serve.mjs",
+    "check": "node scripts/check.mjs",
+    "check:loop": "node scripts/check.mjs --loop"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

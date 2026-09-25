@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Find the best times to open your windows, with a humidity-aware weather forecast.">
+    <meta name="theme-color" content="#f5f4ee">
+    <title>OpenWindow — humidity-aware window planner</title>
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./ui/forecast-chart.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#forecast">Skip to forecast</a>
+    <main class="container">
+      <header class="app-header">
+        <div class="brand"><img src="./icon.svg" width="40" height="40" alt=""><div><h1>OpenWindow</h1><p class="subtitle">A little fresh air, at the right time.</p></div></div>
+        <button type="button" id="location-btn" class="location-button" aria-controls="settings-panel">
+          <span id="location-name">Your location</span><span class="location-edit">Edit location ↗</span>
+        </button>
+        <p id="location-timezone" class="location-timezone">Times follow your forecast location.</p>
+      </header>
+
+      <section class="banner neutral" id="banner" aria-labelledby="banner-title">
+        <div class="banner-main" id="forecast" tabindex="-1">
+          <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Right now</p>
+          <div class="advice" aria-live="polite" aria-atomic="true">
+            <h2 id="banner-title">Loading forecast…</h2>
+            <p class="banner-time" id="banner-time" hidden></p>
+            <p class="banner-sub" id="banner-sub">Checking the latest weather for your home.</p>
+          </div>
+        </div>
+        <div class="banner-bottom"><p id="banner-source" class="source-label">Connecting to the weather forecast</p><button type="button" id="refresh-btn" class="btn secondary small" disabled>Refresh</button></div>
+      </section>
+      <p class="notice" id="data-notice" role="status" hidden></p>
+
+      <section id="conditions" class="conditions" aria-labelledby="conditions-heading" hidden>
+        <h2 id="conditions-heading" class="sr-only">Understanding this recommendation</h2>
+        <dl class="conditions-grid">
+          <div><dt>Outdoor dew point</dt><dd id="metric-dew">—</dd><dd id="metric-limit" class="metric-note"></dd></div>
+          <div><dt id="metric-rh-label">RH at indoor temperature</dt><dd id="metric-rh">—</dd><dd id="metric-target" class="metric-note"></dd></div>
+        </dl>
+        <p class="estimate-note" id="estimate-note">Forecast estimate for outdoor air at your indoor temperature, not a measurement of your room.</p>
+      </section>
+
+      <section class="section" aria-labelledby="windows-heading">
+        <div class="section-heading"><h2 id="windows-heading" tabindex="-1">Your opening windows</h2><span id="windows-count" class="section-meta"></span></div>
+        <ul id="windows-list" class="windows-list" role="list"></ul>
+        <p id="windows-empty" class="empty">Your next opportunities will appear here.</p>
+        <details id="more-windows" class="more-windows" hidden><summary id="more-windows-summary">More windows</summary><ul id="later-windows-list" class="windows-list" role="list"></ul></details>
+        <div class="calendar-sub" id="calendar-sub" hidden>
+          <div class="calendar-link-row"><a id="calendar-link" href="#">Subscribe to shared calendar</a><button type="button" id="calendar-copy" class="btn secondary small">Copy link</button></div>
+          <p id="calendar-scope"></p><p id="calendar-feedback" role="status"></p>
+        </div>
+      </section>
+
+      <section class="section chart-section" aria-labelledby="chart-heading">
+        <div class="section-heading"><h2 id="chart-heading">The hours ahead</h2><span class="section-meta">Forecast timeline</span></div>
+        <div id="chart"><p class="empty">The hourly forecast will appear here.</p></div>
+      </section>
+
+      <details id="settings-panel" class="details">
+        <summary><span>Make it work for your home</span><span id="settings-dirty" class="dirty-badge" hidden>Unsaved</span></summary>
+        <form id="settings-form" class="settings-body" novalidate>
+          <p class="settings-intro">Set your location and indoor target. Your forecast updates when you save.</p>
+          <div id="settings-errors" class="errors" role="alert" tabindex="-1" hidden></div>
+          <fieldset><legend>Your location</legend>
+            <div class="field-grid">
+              <label class="field-wide">Location name <input id="label" type="text" autocomplete="off" placeholder="e.g. Home"></label>
+              <label>Latitude <input id="lat" type="number" step="any" min="-90" max="90" required></label>
+              <label>Longitude <input id="lon" type="number" step="any" min="-180" max="180" required></label>
+            </div>
+            <button type="button" id="use-location" class="btn secondary small">Use my location</button>
+          </fieldset>
+
+          <fieldset><legend>Your indoor target</legend>
+            <div class="units-row"><span>Display temperatures in</span><label class="choice"><input type="radio" name="units" value="F" id="units-f"> °F</label><label class="choice"><input type="radio" name="units" value="C" id="units-c"> °C</label></div>
+            <div class="field-grid">
+              <label><span>Indoor temperature (<span data-temperature-unit>°C</span>)</span><input id="indoor-temp" type="number" step="any" required></label>
+              <label>Target humidity (%) <input id="target-rh" type="number" step="any" min="20" max="80" aria-describedby="target-help" required></label>
+              <label>Minimum window (hours) <input id="min-window-hours" type="number" min="1" step="1" required></label>
+              <label>Forecast length (days) <input id="forecast-days" type="number" min="1" max="16" step="1" required></label>
+            </div>
+            <p id="target-help" class="field-help">Relative humidity (RH) is how much moisture air holds compared with its capacity at that temperature.</p>
+          </fieldset>
+
+          <details id="advanced-settings" class="advanced-settings"><summary>Advanced limits <span>Surfaces, weather &amp; drying</span></summary>
+            <fieldset><legend>Cold surfaces &amp; safety</legend>
+              <div class="field-grid">
+                <label><span>Coldest surface (<span data-temperature-unit>°C</span>, optional)</span><input id="coldest-surface" type="number" step="any" placeholder="Not set"></label>
+                <label>Safety margin (°C difference) <input id="margin" type="number" step="any" min="0" aria-describedby="margin-help" required></label>
+              </div>
+              <p id="margin-help" class="field-help">The margin is always a °C difference, even when temperatures are shown in °F.</p>
+            </fieldset>
+            <fieldset><legend>Outdoor comfort</legend>
+              <div class="field-grid">
+                <label><span>Minimum temperature (<span data-temperature-unit>°C</span>)</span><input id="min-outdoor" type="number" step="any" required></label>
+                <label><span>Maximum temperature (<span data-temperature-unit>°C</span>)</span><input id="max-outdoor" type="number" step="any" required></label>
+                <label>Maximum rain chance (%) <input id="max-rain" type="number" step="any" min="0" max="100" required></label>
+                <label>Maximum wind (km/h) <input id="max-wind" type="number" step="any" min="0" required></label>
+              </div>
+            </fieldset>
+            <fieldset><legend>Drying your room</legend>
+              <label class="choice"><input type="checkbox" id="require-drying"> Require air that is drier than indoors</label>
+              <div id="indoor-reading-fields" hidden>
+                <p id="reading-help" class="field-help">Enter both indoor readings to apply this extra limit. Leave both blank to use the other limits only.</p>
+                <div class="field-grid">
+                  <label><span>Measured indoor temperature (<span data-temperature-unit>°C</span>)</span><input id="indoor-reading-temp" type="number" step="any" aria-describedby="reading-help" placeholder="Optional"></label>
+                  <label>Measured indoor humidity (%) <input id="indoor-reading-rh" type="number" step="any" min="0" max="100" aria-describedby="reading-help" placeholder="Optional"></label>
+                </div>
+              </div>
+            </fieldset>
+          </details>
+
+          <div class="settings-action-area">
+            <p id="draft-note" class="draft-note" hidden>Unsaved changes · Save to update your forecast.</p>
+            <div class="settings-actions"><button type="submit" id="save-btn" class="btn">Save settings</button><button type="button" id="share-btn" class="btn secondary">Copy share link</button><button type="button" id="reset-btn" class="btn quiet">Reset to defaults</button></div>
+            <p id="settings-feedback" class="field-help" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </details>
+      <footer class="footer"><p id="last-updated"></p><p id="checker-info" hidden></p><p>Forecast data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> · CC BY 4.0</p></footer>
+    </main>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

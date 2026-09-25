@@ -1,0 +1,17 @@
+{
+  "location": { "lat": 40.7128, "lon": -74.0060, "label": "New York (example)" },
+  "units": "F",
+  "indoorTempC": 17.0,
+  "targetRH": 50,
+  "coldestSurfaceC": null,
+  "marginC": 1.5,
+  "minOutdoorC": 4.0,
+  "maxOutdoorC": 29.0,
+  "maxRainProb": 30,
+  "maxWindKmh": 40,
+  "minWindowHours": 2,
+  "requireDrying": false,
+  "indoorReading": null,
+  "forecastDays": 3,
+  "notify": { "enabled": false, "leadHours": 1, "realtime": false, "digest": { "enabled": true, "hourLocal": 7 } }
+}

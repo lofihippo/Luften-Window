@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+.env
+.env.local
+.state/
+public/data/state.json
+.local/
