@@ -6,34 +6,18 @@ X-WR-CALNAME:Luften Window
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
 UID:openwindow-40.7128--74.006-1792533600@openwindow
-DTSTAMP:20261021T134518Z
+DTSTAMP:20261021T183612Z
 DTSTART:20261020T220000Z
-DTEND:20261023T010000Z
-SUMMARY:Windows OK
-DESCRIPTION:Dew-point limit 41°F\; lowest forecast dew point 29°F\; highe
- st predicted indoor RH 41%
-LOCATION:New York (example)
-BEGIN:VALARM
-TRIGGER:-PT15M
-ACTION:DISPLAY
-DESCRIPTION:Open the windows (Tue\, Oct 20\, 2026\, 6:00 PM EDT – Thu\, O
- ct 22\, 2026\, 9:00 PM EDT)
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:openwindow-40.7128--74.006-1792724400@openwindow
-DTSTAMP:20261021T134518Z
-DTSTART:20261023T030000Z
 DTEND:20261024T040000Z
 SUMMARY:Windows OK
-DESCRIPTION:Dew-point limit 41°F\; lowest forecast dew point 22°F\; highe
- st predicted indoor RH 41%
+DESCRIPTION:Dew-point limit 41°F\; lowest forecast dew point 23°F\; highe
+ st predicted indoor RH 44%
 LOCATION:New York (example)
 BEGIN:VALARM
 TRIGGER:-PT15M
 ACTION:DISPLAY
-DESCRIPTION:Open the windows (Thu\, Oct 22\, 2026\, 11:00 PM EDT – Sat\, 
- Oct 24\, 2026\, 12:00 AM EDT)
+DESCRIPTION:Open the windows (Tue\, Oct 20\, 2026\, 6:00 PM EDT – Sat\, O
+ ct 24\, 2026\, 12:00 AM EDT)
 END:VALARM
 END:VEVENT
 END:VCALENDAR
