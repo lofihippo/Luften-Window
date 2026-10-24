@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T20:45:45.000Z",
+  "generatedAt": "2026-10-24T23:10:26.000Z",
   "lastRunDate": "2026-10-24",
   "location": {
     "lat": 40.7128,
@@ -13,35 +13,28 @@
     "reasons": [],
     "currentWindow": {
       "start": 1792728000,
-      "end": 1792922400,
-      "hours": 54,
+      "end": 1792969200,
+      "hours": 67,
       "minDewC": -5.1,
       "maxPredictedRH": 41.1506626736601
     },
     "nextWindow": {
-      "start": 1792933200,
-      "end": 1792969200,
-      "hours": 10,
-      "minDewC": -3.6,
-      "maxPredictedRH": 40.57518012298724
+      "start": 1792987200,
+      "end": 1793016000,
+      "hours": 8,
+      "minDewC": 3.7,
+      "maxPredictedRH": 44.75771193270204
     },
-    "closesAt": 1792922400,
-    "remainingSeconds": 47655
+    "closesAt": 1792969200,
+    "remainingSeconds": 85774
   },
   "windows": [
     {
       "start": 1792728000,
-      "end": 1792922400,
-      "hours": 54,
+      "end": 1792969200,
+      "hours": 67,
       "minDewC": -5.1,
       "maxPredictedRH": 41.1506626736601
-    },
-    {
-      "start": 1792933200,
-      "end": 1792969200,
-      "hours": 10,
-      "minDewC": -3.6,
-      "maxPredictedRH": 40.57518012298724
     },
     {
       "start": 1792987200,
@@ -60,250 +53,208 @@
   ],
   "hours": [
     {
-      "t": 1792872000,
-      "tempC": 17.1,
-      "dewPointC": -1.5,
-      "rh": 28,
+      "t": 1792882800,
+      "tempC": 12.4,
+      "dewPointC": 1.1,
+      "rh": 46,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 4.2,
+      "windKmh": 8.6,
       "ok": true,
       "reasons": [],
-      "predictedIndoorRH": 28.31777458745295
+      "predictedIndoorRH": 34.20442455846812
     },
     {
-      "t": 1792875600,
-      "tempC": 16.8,
-      "dewPointC": -0.9,
-      "rh": 30,
+      "t": 1792886400,
+      "tempC": 11.1,
+      "dewPointC": 2.2,
+      "rh": 54,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 4.2,
+      "windKmh": 8.5,
       "ok": true,
       "reasons": [],
-      "predictedIndoorRH": 29.589926513843512
+      "predictedIndoorRH": 37.00503660743304
     },
     {
-      "t": 1792879200,
-      "tempC": 14.2,
+      "t": 1792890000,
+      "tempC": 10.3,
+      "dewPointC": 2.4,
+      "rh": 58,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 9.4,
+      "ok": true,
+      "reasons": [],
+      "predictedIndoorRH": 37.535499996603285
+    },
+    {
+      "t": 1792893600,
+      "tempC": 9.6,
+      "dewPointC": 3.3,
+      "rh": 65,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 9,
+      "ok": true,
+      "reasons": [],
+      "predictedIndoorRH": 40.0068306624121
+    },
+    {
+      "t": 1792897200,
+      "tempC": 8.8,
+      "dewPointC": 2.8,
+      "rh": 66,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 9.9,
+      "ok": true,
+      "reasons": [],
+      "predictedIndoorRH": 38.61666520534827
+    },
+    {
+      "t": 1792900800,
+      "tempC": 7.9,
+      "dewPointC": 1.8,
+      "rh": 65,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 8.8,
+      "ok": true,
+      "reasons": [],
+      "predictedIndoorRH": 35.96398501325044
+    },
+    {
+      "t": 1792904400,
+      "tempC": 7.1,
+      "dewPointC": 1.4,
+      "rh": 67,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 7.8,
+      "ok": true,
+      "reasons": [],
+      "predictedIndoorRH": 34.948956896619656
+    },
+    {
+      "t": 1792908000,
+      "tempC": 6.7,
+      "dewPointC": 0.6,
+      "rh": 65,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 9.3,
+      "ok": true,
+      "reasons": [],
+      "predictedIndoorRH": 32.99472856936498
+    },
+    {
+      "t": 1792911600,
+      "tempC": 6.2,
       "dewPointC": -1,
-      "rh": 35,
+      "rh": 60,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 6.4,
+      "windKmh": 7,
       "ok": true,
       "reasons": [],
       "predictedIndoorRH": 29.374444541861934
     },
     {
-      "t": 1792882800,
-      "tempC": 12.3,
-      "dewPointC": 0.4,
-      "rh": 44,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 8.2,
-      "ok": true,
-      "reasons": [],
-      "predictedIndoorRH": 32.5215684373553
-    },
-    {
-      "t": 1792886400,
-      "tempC": 11.6,
-      "dewPointC": 1.6,
-      "rh": 50,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 11.1,
-      "ok": true,
-      "reasons": [],
-      "predictedIndoorRH": 35.45325345648056
-    },
-    {
-      "t": 1792890000,
-      "tempC": 10.4,
-      "dewPointC": -0.7,
-      "rh": 46,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 8.9,
-      "ok": true,
-      "reasons": [],
-      "predictedIndoorRH": 30.025100848533558
-    },
-    {
-      "t": 1792893600,
-      "tempC": 9.2,
-      "dewPointC": -0.9,
-      "rh": 49,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 7.7,
-      "ok": true,
-      "reasons": [],
-      "predictedIndoorRH": 29.589926513843512
-    },
-    {
-      "t": 1792897200,
-      "tempC": 8.3,
-      "dewPointC": -0.2,
-      "rh": 55,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 11.8,
-      "ok": true,
-      "reasons": [],
-      "predictedIndoorRH": 31.137966890122204
-    },
-    {
-      "t": 1792900800,
-      "tempC": 7.1,
-      "dewPointC": -0.8,
-      "rh": 57,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 6.7,
-      "ok": true,
-      "reasons": [],
-      "predictedIndoorRH": 29.806809327797744
-    },
-    {
-      "t": 1792904400,
-      "tempC": 6.3,
-      "dewPointC": -1.9,
-      "rh": 56,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 3,
-      "ok": true,
-      "reasons": [],
-      "predictedIndoorRH": 27.496864929464753
-    },
-    {
-      "t": 1792908000,
-      "tempC": 5.8,
-      "dewPointC": -2,
-      "rh": 57,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 3.4,
-      "ok": true,
-      "reasons": [],
-      "predictedIndoorRH": 27.29496676768156
-    },
-    {
-      "t": 1792911600,
-      "tempC": 5.2,
-      "dewPointC": -3.3,
-      "rh": 54,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 2.5,
-      "ok": true,
-      "reasons": [],
-      "predictedIndoorRH": 24.787438968982556
-    },
-    {
       "t": 1792915200,
-      "tempC": 5.2,
-      "dewPointC": -2.6,
-      "rh": 57,
+      "tempC": 5.5,
+      "dewPointC": -1.4,
+      "rh": 61,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 5.9,
+      "windKmh": 6.6,
+      "ok": true,
+      "reasons": [],
+      "predictedIndoorRH": 28.526369050500065
+    },
+    {
+      "t": 1792918800,
+      "tempC": 4.7,
+      "dewPointC": -2.6,
+      "rh": 59,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 4.1,
       "ok": true,
       "reasons": [],
       "predictedIndoorRH": 26.110969593180442
     },
     {
-      "t": 1792918800,
-      "tempC": 4.3,
+      "t": 1792922400,
+      "tempC": 4.2,
+      "dewPointC": -3.3,
+      "rh": 58,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 0.5,
+      "ok": true,
+      "reasons": [],
+      "predictedIndoorRH": 24.787438968982556
+    },
+    {
+      "t": 1792926000,
+      "tempC": 4.4,
       "dewPointC": -3.4,
       "rh": 57,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 5.7,
+      "windKmh": 5.2,
       "ok": true,
       "reasons": [],
       "predictedIndoorRH": 24.60331061111569
     },
     {
-      "t": 1792922400,
-      "tempC": 3.5,
-      "dewPointC": -5.2,
-      "rh": 53,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 3.1,
-      "ok": false,
-      "reasons": [
-        "TOO_COLD"
-      ],
-      "predictedIndoorRH": 21.490275224568222
-    },
-    {
-      "t": 1792926000,
-      "tempC": 3.4,
-      "dewPointC": -5.8,
-      "rh": 51,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 4.2,
-      "ok": false,
-      "reasons": [
-        "TOO_COLD"
-      ],
-      "predictedIndoorRH": 20.533359139072925
-    },
-    {
       "t": 1792929600,
-      "tempC": 3.4,
-      "dewPointC": -6,
-      "rh": 50,
+      "tempC": 4.1,
+      "dewPointC": -3.4,
+      "rh": 58,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 4.8,
-      "ok": false,
-      "reasons": [
-        "TOO_COLD"
-      ],
-      "predictedIndoorRH": 20.222915043619476
+      "windKmh": 4.5,
+      "ok": true,
+      "reasons": [],
+      "predictedIndoorRH": 24.60331061111569
     },
     {
       "t": 1792933200,
-      "tempC": 6.9,
-      "dewPointC": -2.8,
-      "rh": 50,
+      "tempC": 7.5,
+      "dewPointC": -1.2,
+      "rh": 54,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 1.1,
+      "windKmh": 1.3,
       "ok": true,
       "reasons": [],
-      "predictedIndoorRH": 25.72656266942719
+      "predictedIndoorRH": 28.947651846699586
     },
     {
       "t": 1792936800,
-      "tempC": 11.8,
-      "dewPointC": -2.1,
+      "tempC": 11.9,
+      "dewPointC": -2,
       "rh": 38,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 4.6,
-      "ok": true,
-      "reasons": [],
-      "predictedIndoorRH": 27.094385312264436
-    },
-    {
-      "t": 1792940400,
-      "tempC": 14.9,
-      "dewPointC": -3,
-      "rh": 29,
       "precipProb": 0,
       "precipMm": 0,
       "windKmh": 5.9,
       "ok": true,
       "reasons": [],
-      "predictedIndoorRH": 25.347188538136205
+      "predictedIndoorRH": 27.29496676768156
+    },
+    {
+      "t": 1792940400,
+      "tempC": 15.1,
+      "dewPointC": -1.9,
+      "rh": 31,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 5.5,
+      "ok": true,
+      "reasons": [],
+      "predictedIndoorRH": 27.496864929464753
     },
     {
       "t": 1792944000,
@@ -1131,187 +1082,187 @@
       "rh": 27,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 5.8
+      "windKmh": 5.1
     },
     {
       "t": 1792872000,
-      "tempC": 17.1,
-      "dewPointC": -1.5,
-      "rh": 28,
+      "tempC": 17.6,
+      "dewPointC": -3.8,
+      "rh": 23,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 4.2
+      "windKmh": 2.3
     },
     {
       "t": 1792875600,
-      "tempC": 16.8,
+      "tempC": 17.3,
       "dewPointC": -0.9,
-      "rh": 30,
+      "rh": 29,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 4.2
+      "windKmh": 5.4
     },
     {
       "t": 1792879200,
       "tempC": 14.2,
-      "dewPointC": -1,
-      "rh": 35,
+      "dewPointC": -0.7,
+      "rh": 36,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 6.4
+      "windKmh": 9.2
     },
     {
       "t": 1792882800,
-      "tempC": 12.3,
-      "dewPointC": 0.4,
-      "rh": 44,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 8.2
-    },
-    {
-      "t": 1792886400,
-      "tempC": 11.6,
-      "dewPointC": 1.6,
-      "rh": 50,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 11.1
-    },
-    {
-      "t": 1792890000,
-      "tempC": 10.4,
-      "dewPointC": -0.7,
+      "tempC": 12.4,
+      "dewPointC": 1.1,
       "rh": 46,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 8.9
+      "windKmh": 8.6
     },
     {
-      "t": 1792893600,
-      "tempC": 9.2,
-      "dewPointC": -0.9,
-      "rh": 49,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 7.7
-    },
-    {
-      "t": 1792897200,
-      "tempC": 8.3,
-      "dewPointC": -0.2,
-      "rh": 55,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 11.8
-    },
-    {
-      "t": 1792900800,
-      "tempC": 7.1,
-      "dewPointC": -0.8,
-      "rh": 57,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 6.7
-    },
-    {
-      "t": 1792904400,
-      "tempC": 6.3,
-      "dewPointC": -1.9,
-      "rh": 56,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 3
-    },
-    {
-      "t": 1792908000,
-      "tempC": 5.8,
-      "dewPointC": -2,
-      "rh": 57,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 3.4
-    },
-    {
-      "t": 1792911600,
-      "tempC": 5.2,
-      "dewPointC": -3.3,
+      "t": 1792886400,
+      "tempC": 11.1,
+      "dewPointC": 2.2,
       "rh": 54,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 2.5
+      "windKmh": 8.5
+    },
+    {
+      "t": 1792890000,
+      "tempC": 10.3,
+      "dewPointC": 2.4,
+      "rh": 58,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 9.4
+    },
+    {
+      "t": 1792893600,
+      "tempC": 9.6,
+      "dewPointC": 3.3,
+      "rh": 65,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 9
+    },
+    {
+      "t": 1792897200,
+      "tempC": 8.8,
+      "dewPointC": 2.8,
+      "rh": 66,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 9.9
+    },
+    {
+      "t": 1792900800,
+      "tempC": 7.9,
+      "dewPointC": 1.8,
+      "rh": 65,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 8.8
+    },
+    {
+      "t": 1792904400,
+      "tempC": 7.1,
+      "dewPointC": 1.4,
+      "rh": 67,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 7.8
+    },
+    {
+      "t": 1792908000,
+      "tempC": 6.7,
+      "dewPointC": 0.6,
+      "rh": 65,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 9.3
+    },
+    {
+      "t": 1792911600,
+      "tempC": 6.2,
+      "dewPointC": -1,
+      "rh": 60,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 7
     },
     {
       "t": 1792915200,
-      "tempC": 5.2,
-      "dewPointC": -2.6,
-      "rh": 57,
+      "tempC": 5.5,
+      "dewPointC": -1.4,
+      "rh": 61,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 5.9
+      "windKmh": 6.6
     },
     {
       "t": 1792918800,
-      "tempC": 4.3,
+      "tempC": 4.7,
+      "dewPointC": -2.6,
+      "rh": 59,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 4.1
+    },
+    {
+      "t": 1792922400,
+      "tempC": 4.2,
+      "dewPointC": -3.3,
+      "rh": 58,
+      "precipProb": 0,
+      "precipMm": 0,
+      "windKmh": 0.5
+    },
+    {
+      "t": 1792926000,
+      "tempC": 4.4,
       "dewPointC": -3.4,
       "rh": 57,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 5.7
-    },
-    {
-      "t": 1792922400,
-      "tempC": 3.5,
-      "dewPointC": -5.2,
-      "rh": 53,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 3.1
-    },
-    {
-      "t": 1792926000,
-      "tempC": 3.4,
-      "dewPointC": -5.8,
-      "rh": 51,
-      "precipProb": 0,
-      "precipMm": 0,
-      "windKmh": 4.2
+      "windKmh": 5.2
     },
     {
       "t": 1792929600,
-      "tempC": 3.4,
-      "dewPointC": -6,
-      "rh": 50,
+      "tempC": 4.1,
+      "dewPointC": -3.4,
+      "rh": 58,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 4.8
+      "windKmh": 4.5
     },
     {
       "t": 1792933200,
-      "tempC": 6.9,
-      "dewPointC": -2.8,
-      "rh": 50,
+      "tempC": 7.5,
+      "dewPointC": -1.2,
+      "rh": 54,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 1.1
+      "windKmh": 1.3
     },
     {
       "t": 1792936800,
-      "tempC": 11.8,
-      "dewPointC": -2.1,
+      "tempC": 11.9,
+      "dewPointC": -2,
       "rh": 38,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 4.6
+      "windKmh": 5.9
     },
     {
       "t": 1792940400,
-      "tempC": 14.9,
-      "dewPointC": -3,
-      "rh": 29,
+      "tempC": 15.1,
+      "dewPointC": -1.9,
+      "rh": 31,
       "precipProb": 0,
       "precipMm": 0,
-      "windKmh": 5.9
+      "windKmh": 5.5
     },
     {
       "t": 1792944000,
