@@ -6,11 +6,11 @@ X-WR-CALNAME:Luften Window
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
 UID:openwindow-40.7128--74.006-1793383200@openwindow
-DTSTAMP:20261029T214746Z
+DTSTAMP:20261030T015652Z
 DTSTART:20261030T180000Z
 DTEND:20261101T040000Z
 SUMMARY:Windows OK
-DESCRIPTION:Dew-point limit 41°F\; lowest forecast dew point 25°F\; highe
+DESCRIPTION:Dew-point limit 41°F\; lowest forecast dew point 26°F\; highe
  st predicted indoor RH 41%
 LOCATION:New York (example)
 BEGIN:VALARM
