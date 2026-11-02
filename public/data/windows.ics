@@ -5,35 +5,51 @@ CALSCALE:GREGORIAN
 X-WR-CALNAME:Luften Window
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:openwindow-40.7128--74.006-1793588400@openwindow
-DTSTAMP:20261102T004105Z
-DTSTART:20261102T030000Z
+UID:openwindow-40.7128--74.006-1793581200@openwindow
+DTSTAMP:20261102T073922Z
+DTSTART:20261102T010000Z
 DTEND:20261102T130000Z
 SUMMARY:Windows OK
-DESCRIPTION:Dew-point limit 41°F\; lowest forecast dew point 39°F\; highe
+DESCRIPTION:Dew-point limit 41°F\; lowest forecast dew point 37°F\; highe
  st predicted indoor RH 44%
 LOCATION:New York (example)
 BEGIN:VALARM
 TRIGGER:-PT15M
 ACTION:DISPLAY
-DESCRIPTION:Open the windows (Sun\, Nov 1\, 2026\, 10:00 PM EST – Mon\, N
- ov 2\, 2026\, 8:00 AM EST)
+DESCRIPTION:Open the windows (Sun\, Nov 1\, 2026\, 8:00 PM EST – Mon\, No
+ v 2\, 2026\, 8:00 AM EST)
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:openwindow-40.7128--74.006-1793638800@openwindow
-DTSTAMP:20261102T004105Z
-DTSTART:20261102T170000Z
+UID:openwindow-40.7128--74.006-1793642400@openwindow
+DTSTAMP:20261102T073922Z
+DTSTART:20261102T180000Z
 DTEND:20261103T000000Z
 SUMMARY:Windows OK
-DESCRIPTION:Dew-point limit 41°F\; lowest forecast dew point 35°F\; highe
- st predicted indoor RH 44%
+DESCRIPTION:Dew-point limit 41°F\; lowest forecast dew point 36°F\; highe
+ st predicted indoor RH 41%
 LOCATION:New York (example)
 BEGIN:VALARM
 TRIGGER:-PT15M
 ACTION:DISPLAY
-DESCRIPTION:Open the windows (Mon\, Nov 2\, 2026\, 12:00 PM EST – Mon\, N
- ov 2\, 2026\, 7:00 PM EST)
+DESCRIPTION:Open the windows (Mon\, Nov 2\, 2026\, 1:00 PM EST – Mon\, No
+ v 2\, 2026\, 7:00 PM EST)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:openwindow-40.7128--74.006-1793678400@openwindow
+DTSTAMP:20261102T073922Z
+DTSTART:20261103T040000Z
+DTEND:20261103T070000Z
+SUMMARY:Windows OK
+DESCRIPTION:Dew-point limit 41°F\; lowest forecast dew point 39°F\; highe
+ st predicted indoor RH 45%
+LOCATION:New York (example)
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Open the windows (Mon\, Nov 2\, 2026\, 11:00 PM EST – Tue\, N
+ ov 3\, 2026\, 2:00 AM EST)
 END:VALARM
 END:VEVENT
 END:VCALENDAR
