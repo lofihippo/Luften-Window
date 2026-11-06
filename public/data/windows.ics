@@ -5,18 +5,18 @@ CALSCALE:GREGORIAN
 X-WR-CALNAME:Luften Window
 X-PUBLISHED-TTL:PT1H
 BEGIN:VEVENT
-UID:openwindow-40.7128--74.006-1794085200@openwindow
-DTSTAMP:20261105T184306Z
-DTSTART:20261107T210000Z
+UID:openwindow-40.7128--74.006-1794074400@openwindow
+DTSTAMP:20261106T001207Z
+DTSTART:20261107T180000Z
 DTEND:20261108T050000Z
 SUMMARY:Windows OK
-DESCRIPTION:Dew-point limit 41°F\; lowest forecast dew point 37°F\; highe
- st predicted indoor RH 41%
+DESCRIPTION:Dew-point limit 41°F\; lowest forecast dew point 33°F\; highe
+ st predicted indoor RH 44%
 LOCATION:New York (example)
 BEGIN:VALARM
 TRIGGER:-PT15M
 ACTION:DISPLAY
-DESCRIPTION:Open the windows (Sat\, Nov 7\, 2026\, 4:00 PM EST – Sun\, No
+DESCRIPTION:Open the windows (Sat\, Nov 7\, 2026\, 1:00 PM EST – Sun\, No
  v 8\, 2026\, 12:00 AM EST)
 END:VALARM
 END:VEVENT
